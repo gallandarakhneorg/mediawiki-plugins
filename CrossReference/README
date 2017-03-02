@@ -1,0 +1,12 @@
+1. Licensing
+2. How to install
+
+1. Licensing
+Licensed under GNU GPL. See COPYING for more license information.
+
+2. How to install
+   a. Download this tarball and extract the contents to $IP/extensions/CrossReference/
+      where $IP is your root wiki install
+   b. Add 'require( "extensions/CrossReference/CrossReference.php");' to your
+      LocalSettings (without the single quotes)
+   c. Enjoy

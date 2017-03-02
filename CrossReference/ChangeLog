@@ -1,0 +1,34 @@
+2010-08-15  Stanislav Pika  <staspika@gmail.com>
+
+	* Release 3.0.
+	* Add Norvegian translations.
+	* Add Russian translations.
+
+2010-08-15  Stephane Galland  <galland@arakhne.org>
+
+	* Release 3.0.
+	* Add comments for translation contributors.
+	* Move translations in subdirectory i18n.
+	* Add French translations.
+
+2010-08-03  Stephane Galland  <galland@arakhne.org>
+
+	* Release 2.0.
+	* Add support for subfigures, subtables...
+
+2010-08-03  Stephane Galland  <galland@arakhne.org>
+
+	* Release 1.1.
+	* Internal caches are no more clear to avoid reference loose.
+
+2010-08-02  Stephane Galland  <galland@arakhne.org>
+
+	* Release 1.0.
+	* Complete Refund of the source code.
+	* Add more supported tags.
+	* Add parameters to tags.
+
+2009-08-03  Tore Birkelan  <unknow>
+
+	* Release 1.0-beta.
+	* First public release on Mediawiki website.
