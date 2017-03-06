@@ -121,16 +121,11 @@ class ExtCrossReference
         {
 		$solution = '';
 		if ($solutionId) {
-			$solution = wfMsgExt( 
-				$solutionId,
-				 array( 'escape', 'parsemag', 'content' ),
-				$method);
+			$solution = wfMessage($solutionId, $method)->inContentLanguage()->escaped()->parse();
 			if ($solution==$solutionId)
 				$solution = '';
 		}
-                $msg = $this->error(wfMsgExt( $messageId,
-                         array( 'escape', 'parsemag', 'content' )),
-			$solution);
+                $msg = $this->error(wfMessage( $messageId )->inContentLanguage()->escaped()->parse(), solution);
 		return $msg;
         }
 
@@ -243,9 +238,7 @@ class ExtCrossReference
 			if ($plurial) {
 				$c .= '_s';
 			}
-	                $caption = wfMsgExt( $c,
-        	                        array( 'parsemag', 'content' ),
-                	                '%i', $caption );
+            $caption = wfMessage( $c, '%i', $caption )->inContentLanguage()->parse();
 			$caption = str_replace('%c', '', $caption);
 	                if ("<$c>"!=$caption) return $caption;
         	}
@@ -437,7 +430,7 @@ class ExtCrossReference
 			$dmarker = "xx--CrossReference--dft--$hidden$id--xx";
 
 			if (!$text) {
-				if (count($ids)>1) $txt = $marker;
+				if (isset($ids) && count($ids)>1) $txt = $marker;
 				else $txt = $dmarker;
 			}
 			elseif (!strpos($text, "%i")) {
