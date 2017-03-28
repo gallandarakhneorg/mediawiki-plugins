@@ -378,7 +378,7 @@ class ExtCrossReference
 				$out .= "<div class='crossref-block' id='label-".
 					$id."'>";
 			}
-			if (isset($argv['showNumber'])) {
+			if (isset($argv['showNumber']) || isset($argv['shownumber'])) {
 				$out .= "<span class='cross-id'>";
 				$out .= "(" . $num . ")";
 				$out .= "</span>";
