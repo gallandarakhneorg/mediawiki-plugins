@@ -1,3 +1,8 @@
+2017-03-28  Stephane Galland  <galland@arakhne.org>
+
+	* Release 4.1.
+	* Support of "shownumber" or "showNumber".
+	
 2017-03-06  Stanislav Pika  <staspika@gmail.com>
 
 	* Release 4.0.
