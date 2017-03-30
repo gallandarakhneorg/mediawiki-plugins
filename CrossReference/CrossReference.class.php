@@ -371,27 +371,31 @@ class ExtCrossReference
                         $this->lookup[$id]['group'] = $group;
 
 			// Expand text
-			$innerHtml = $parser->recursiveTagParse(trim($text));
+            // Normally, the following code would have been used:
+			// $innerHtml = $parser->recursiveTagParse(trim($text));
+            // ... However, as per MediaWiki 1.28, it doesn't work as
+            // expected (see https://www.mediawiki.org/wiki/QINU_fix)
+            // because a bug in MediaWiki's parser. The following
+            // workaround have to be used instead (only the following
+            // line):
+            $innerHtml = $wgOut->parseInline(trim($text));
 
+            $out = $innerHtml;
+			
 			// Build label
-			if (!isset($argv['noblock'])) {
-				$out .= "<div class='crossref-block' id='label-".
-					$id."'>";
-			}
 			if (isset($argv['showNumber']) || isset($argv['shownumber'])) {
-				$out .= "<span class='cross-id'>";
-				$out .= "(" . $num . ")";
-				$out .= "</span>";
+				$out = implode(array($out, " <span class='cross-id'>", "(", $num, ")", "</span>"));
 			}
 			if (!isset($argv['noblock'])) {
-			        $out .= "<span class='crossref-content'>";
+				$out = implode(array(
+                    "<div class='crossref-block' id='label-", $id, "'>",
+                    "<span class='crossref-content'>", $out, "</span>",
+                    "</div>"
+                ));
 			}
-		        $out .= $innerHtml;
-			if (!isset($argv['noblock'])) {
-			        $out .= "</span>";
-			        $out .= "</div>";	
-			}
-
+            // ... The following line is also a part of the workaround
+            // mentioned above:
+            $out = implode(array("<p>", $out,"</p>"));
 			if (isset($submatcher)) {
 				$submatcher->clear();
 				$submatcher = null;
