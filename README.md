@@ -1,6 +1,12 @@
 # mediawiki-plugins
-Plugins for Mediawiki
+This project contains a set of plugins for Mediawiki.
 
+## Repositories of the Submodules
+
+Several Mediawiki plugins have their own Git repository:
+* [CrossReference](https://github.com/gallandarakhne.org/mediawiki-crossreference)
+
+## Low Development Rate
 
 As the original author of the different Mediawiki extensions in this repository, I cannot work on updates and bug
 fixes for the lastest versions of Mediawiki, because it is outside the scope of my current professional activities.
