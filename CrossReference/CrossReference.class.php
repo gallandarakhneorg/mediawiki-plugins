@@ -81,7 +81,6 @@ class ExtCrossReference
 			return $parser->pf_markerRegex;
 		}
 
-		wfProfileIn( __METHOD__ );
 
 		$prefix = preg_quote( $parser->uniqPrefix(), '/' );
 
@@ -98,7 +97,6 @@ class ExtCrossReference
 		
 		$parser->pf_markerRegex = '/' .$prefix. '(?:(?!' .$suffix. ').)*' . $suffix . '/us';
 
-		wfProfileOut( __METHOD__ );
 		return $parser->pf_markerRegex;
 	}
 
@@ -295,7 +293,6 @@ class ExtCrossReference
         public function expandXrLabel( $text='', $argv='', $parser=null )
         {
         global $wgOut;
-		wfProfileIn( __METHOD__ );
 
 		$out = '';
 
@@ -408,7 +405,6 @@ class ExtCrossReference
                                         __METHOD__);
 		}
 
-		wfProfileOut( __METHOD__ );
 		return $out;
 	}
 
@@ -419,7 +415,6 @@ class ExtCrossReference
          */
         public function expandXr( $text='', $argv='', $parser=null )
         {
-                wfProfileIn( __METHOD__ );
                 $out = '';
 
 		$hidden = '';
@@ -452,7 +447,6 @@ class ExtCrossReference
 					__METHOD__);
 		}
 		
-                wfProfileOut( __METHOD__ );
                 return $out;
         }
 
@@ -460,11 +454,9 @@ class ExtCrossReference
          */
         public function expandFigure( $input='', $argv='', $parser=null )
         {
-                wfProfileIn( __METHOD__ );
 		$argv['group'] = 'fig';
 		$argv['subcomponent'] = 'subfigure';
                 $out = $this->expandXrLabel($input, $argv, $parser);
-                wfProfileOut( __METHOD__ );
                 return $out;
         }
 
@@ -472,11 +464,9 @@ class ExtCrossReference
          */
         public function expandEquation( $input='', $argv='', $parser=null )
         {
-                wfProfileIn( __METHOD__ );
                 $argv['group'] = 'eqn';
 		$argv['subcomponent'] = 'subequation';
                 $out = $this->expandXrLabel($input, $argv, $parser);
-                wfProfileOut( __METHOD__ );
                 return $out;
         }
 
@@ -484,11 +474,9 @@ class ExtCrossReference
          */
         public function expandDefinition( $input='', $argv='', $parser=null )
         {
-                wfProfileIn( __METHOD__ );
                 $argv['group'] = 'def';
 		$argv['subcomponent'] = 'subdefinition';
                 $out = $this->expandXrLabel($input, $argv, $parser);
-                wfProfileOut( __METHOD__ );
                 return $out;
         }
 
@@ -496,11 +484,9 @@ class ExtCrossReference
          */
         public function expandFigTable( $input='', $argv='', $parser=null )
         {
-                wfProfileIn( __METHOD__ );
                 $argv['group'] = 'tab';
 		$argv['subcomponent'] = 'subfigtable';
                 $out = $this->expandXrLabel($input, $argv, $parser);
-                wfProfileOut( __METHOD__ );
                 return $out;
         }
 
@@ -508,11 +494,9 @@ class ExtCrossReference
          */
         public function expandTheorem( $input='', $argv='', $parser=null )
         {
-                wfProfileIn( __METHOD__ );
                 $argv['group'] = 'the';
 		$argv['subcomponent'] = 'subtheorem';
                 $out = $this->expandXrLabel($input, $argv, $parser);
-                wfProfileOut( __METHOD__ );
                 return $out;
         }
 
