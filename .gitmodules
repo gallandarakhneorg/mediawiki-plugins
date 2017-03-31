@@ -1,0 +1,3 @@
+[submodule "CrossReference"]
+	path = CrossReference
+	url = https://github.com/gallandarakhneorg/mediawiki-crossreference
